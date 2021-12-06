@@ -8,7 +8,8 @@ proj4string(shape)<-crs('+proj=lcc +lat_1=17.5 +lat_2=29.5 +lat_0=12 +lon_0=-102
 #Mexico limit 
 #country limit from the global administrative areas project\
 #https://gadm.org/
-lim <- readRDS('gadm36_MEX_2_sp.rds')
+ lim <- getData('GADM', country='MEX', level=1)
+
 lim <- spTransform(lim, CRS(projection(shape)))
 #lista de covariables
 lis <- readRDS('covariateList.rds')
